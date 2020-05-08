@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">Select correct answer for the below question.</div>
+  <div class="card-body">
+    <div>{{questions[currentPosition].Question}}</div>
+    <div>
+      <ul *ngFor="let questionOption of questions[currentPosition].Option">
+        <li>
+          <input type="radio" name="question" value="{{questionOption}}"
+            (change)="selectAnswer($event)">{{questionOption}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="showResult === true">
+    <strong>Please Select any option...</strong>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-primary" *ngIf="currentPosition>0" (click)="showPrevious()"><i
+        class="fa fa-arrow-left"></i>Previous</button>
+    <button class="btn btn-success" (click)="goToNextQuestion()">Submit</button>
+    <button class="btn btn-primary" *ngIf="currentPosition <= arrayLength - 1" (click)="showNext()">Next<i
+        class="fa fa-arrow-right"></i></button>
+  </div>
+</div>

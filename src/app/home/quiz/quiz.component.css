@@ -1,0 +1,10 @@
+button {
+  margin: 10px;
+}
+
+ul {
+  list-style: none;
+}
+li>input {
+    margin-right: 5px;
+}

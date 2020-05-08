@@ -1,0 +1,22 @@
+<div class="card"> <!-- *ngIf="showResult === true"> -->
+  <div class="card-header">
+    Result Summary
+  </div>
+  <div class="card-body">
+    Score : {{Count}} <span>Out Of</span> {{quizProvider.QCount.length}}
+  </div>
+  <div *ngFor="let answer of quizProvider.Result" class="card-body">
+    <div>
+      Question: {{answer.Question}}
+    </div>
+    <div class="col-md-12">
+      Correct Result: ({{answer.CorrectAnswer}}), Your Answer: {{answer.Answer}}, Status:
+      <div *ngIf="answer.AnswerStatus === true" class="text-success" style="display: inline-block">
+        {{answer.AnswerStatus}}
+      </div>
+      <div *ngIf="answer.AnswerStatus === false" class="text-danger" style="display: inline-block">
+        {{answer.AnswerStatus}}
+      </div>
+    </div>
+  </div>
+</div>
